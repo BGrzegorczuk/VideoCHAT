@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src='/javascripts/vendor/require.js')
+
+    //- initialize requirejs with given config
+    script(type="text/javascript")
+      :js
+        requirejs.config({
+          'baseUrl': "javascripts",
+          'paths': {
+            'socket.io': 'vendor/socket.io',
+            'adapter': 'vendor/adapter',
+            'jquery': 'vendor/jquery.min',
+            'jquery.ui.widget': 'vendor/jquery.ui.widget',
+            'fileupload': 'vendor/jquery.fileupload',
+            'filesaver': 'vendor/file_saver',
+            'underscore': 'vendor/underscore',
+            'send_channel_worker': 'webworkers/send_channel_worker',
+            'receive_channel_worker': 'webworkers/receive_channel_worker'
+          },
+          'shim': {
+            'underscore': {
+              'exports': '_'
+            }
+          }
+        })
+
+        require(['main', 'jquery', 'fileupload'], function (initApp){
+          initApp();
+        });
+
+
+    block scripts
+
+  body
+    block content

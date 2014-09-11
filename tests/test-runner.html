@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VideoCHAT Test Suite</title>
+        <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    </head>
+    <body>
+        <div id="mocha"></div>
+        <script src="../node_modules/chai/chai.js"></script>
+        <script src="../node_modules/mocha/mocha.js"></script>
+        <!-- <script src="../node_modules/should/should.js"></script> -->
+
+        <!-- SINON LIBRARIES (all have to be included manually) -->
+        <script src="../node_modules/sinon/lib/sinon.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/spy.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/call.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/behavior.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/stub.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/mock.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/collection.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/assert.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/sandbox.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/test.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/test_case.js"></script>
+        <script src="../node_modules/sinon/lib/sinon/match.js"></script>
+
+        <script src="../public/javascripts/vendor/require.js"></script>
+
+        <script>
+          // tests setup
+          var assert = chai.assert,
+              expect = chai.expect,
+              should = chai.should();
+
+          mocha.setup({ui: 'bdd'});
+
+          // requirejs setup
+          requirejs.config({
+            'baseUrl': "../public/javascripts",
+            'paths': {
+              'socket.io': 'vendor/socket.io',
+              'adapter': 'vendor/adapter',
+              'jquery': 'vendor/jquery.min',
+              'jquery.ui.widget': 'vendor/jquery.ui.widget',
+              'fileupload': 'vendor/jquery.fileupload',
+              'filesaver': 'vendor/file_saver',
+              'underscore': 'vendor/underscore',
+              'tests': '../../tests'
+            },
+            'shim': {
+              'underscore': {
+                'exports': '_'
+              }
+            }
+          })
+
+          // path relative to requirejs config baseUrl
+          require([
+              'tests/queue_task.test',
+              'tests/buffer_queue.test',
+              'tests/processing_queue.test',
+              'tests/base_channel_worker_adapter.test',
+              'tests/send_channel_worker_adapter.test',
+              'tests/connection_manager.test'
+            ],
+            function (){
+              mocha.checkLeaks();
+              mocha.run();
+            }
+          );
+        </script>
+    </body>
+</html>

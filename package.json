@@ -1,0 +1,31 @@
+{
+  "name": "VideoCHAT",
+  "version": "0.0.1",
+  "description": "Simple WebRTC VideoCHAT application on Express.js, using Web Workers and GruntJS.",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/LzKLazka/VideoCHAT"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "express-session": "~1.0.2",
+    "jade": "*",
+    "socket.io": "~0.9.16",
+    "redis": "~0.10.1",
+    "async": "~0.7.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-supervisor": "~0.1.2",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-mocha": "~0.4.11",
+    "mocha": "~1.19.0",
+    "chai": "~1.9.1",
+    "should": "~4.0.4",
+    "grunt-newer": "~0.7.0",
+    "sinon": "~1.10.2"
+  }
+}

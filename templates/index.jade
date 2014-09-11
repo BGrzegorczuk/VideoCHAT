@@ -1,0 +1,19 @@
+extends layout
+
+
+block scripts
+  script(src='//localhost:35729/livereload.js')
+
+
+block content
+
+  #room-wrap
+    video(id='localVideo', autoplay, muted)
+    video(id='remoteVideo', autoplay)
+
+    .share-url-cont
+      label(for="shareUrl").share-url-label Share URL:
+      input(id="shareUrl", type="text", data-room=room, name="shareUrl", value=shareURL ReadOnly).form-control.share-url-input
+
+
+  //- script(src='/javascripts/main.js')

@@ -1,0 +1,11 @@
+TODOS
+
+node_modules/*
+bower_components/*
+.sass-cache/*
+.DS_Store
+
+public/javascripts/*
+public/stylesheets/*
+
+tests/*.js
